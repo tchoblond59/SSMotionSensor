@@ -1,0 +1,23 @@
+{
+    "name": "julien/ssmotionsensor",
+    "description": "Motion Sensor Widget for LaraHome",
+    "authors": [
+        {
+            "name": "Julien Lamandin",
+            "email": "julien.lamandin@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tchoblond59\\SSMotionSensor\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tchoblond59\\SSMotionSensor\\SSMotionSensorServiceProvider"
+            ]
+        }
+    },
+    "require": {}
+}
