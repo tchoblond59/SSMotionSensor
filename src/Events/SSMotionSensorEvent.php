@@ -25,11 +25,13 @@ class SSMotionSensorEvent implements ShouldBroadcast
 
     public $state=0;
     public $sensor;
+    public $last_busy_text;
 
-    public function __construct(Sensor $sensor, $state)
+    public function __construct(Sensor $sensor, $state, $last_busy_text)
     {
         $this->sensor = $sensor;
         $this->state = $state;
+        $this->last_busy_text = $last_busy_text;
     }
 
     /**

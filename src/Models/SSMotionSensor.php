@@ -15,10 +15,21 @@ class SSMotionSensor extends Sensor
 {
     public function getWidget(\App\Widget $widget)
     {
-
         return view('ssmotion::widget')->with(['widget' => $widget,
             'sensor' => $this,
+            'last_busy' => $this->getLastBusy(),
         ]);
+    }
+
+    public function getLastBusy()
+    {
+        $last_busy = Message::where('node_address', $this->node_address)
+            ->where('sensor_address', $this->sensor_address)
+            ->where('type', 16)
+            ->where('value', 1)
+            ->orderBy('created_at', 'desc')
+            ->first();
+        return $last_busy;
     }
 
     public function getState()

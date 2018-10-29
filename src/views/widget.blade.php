@@ -13,5 +13,6 @@
             </div>
         @endif
         <hr>
+            Occupé pour la dernière fois <span id="last_busy_{{$sensor->id}}">{{$last_busy->created_at->diffForHumans()}}</span>
     </div>
 </div>
