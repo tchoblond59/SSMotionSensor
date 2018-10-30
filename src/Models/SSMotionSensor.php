@@ -32,6 +32,24 @@ class SSMotionSensor extends Sensor
         return $last_busy;
     }
 
+    public function getBatteryLevel()
+    {
+        $message = Message::where('node_address', $this->node_address)
+            ->where('sensor_address', 255)
+            ->where('command', 3)
+            ->where('type', 0)
+            ->orderBy('created_at', 'desc')
+            ->first();
+        if($message)
+        {
+            return $message->value;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
     public function getState()
     {
         $last_message = Message::where('node_address', $this->node_address)

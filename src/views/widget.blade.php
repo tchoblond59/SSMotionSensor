@@ -1,6 +1,6 @@
 <div class="panel panel-default roller_shutter_widget roller_shutter_{{$sensor->id}}">
     <div class="panel-heading">
-        <h3 class="panel-title">{{$widget->name}}</h3>
+        <h3 class="panel-title">{{$widget->name}} <span class="pull-right">{{$sensor->getBatteryLevel()}}% <i class="fa fa-battery"></i></span></h3>
     </div>
     <div class="panel-body text-center" data-sensor-id="{{$sensor->id}}">
         @if($sensor->getState())
