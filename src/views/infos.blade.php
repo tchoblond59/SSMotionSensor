@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <h1>Info du capteur</h1><hr>
                 @foreach($nbActivation as $activation)
-                    <div>Le: {{$activation->carbon_date->format('d/m/Y')}} il y a eu {{$activation->compte}} personnes</div>
+                    <div>Le: {{\Carbon\Carbon::parse($activation->date)->format('d/m/Y')}} il y a eu {{$activation->compte}} personnes</div>
                 @endforeach
             </div>
         </div>
