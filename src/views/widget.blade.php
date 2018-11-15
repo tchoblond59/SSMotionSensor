@@ -12,6 +12,8 @@
                 <h2>Libre</h2>
             </div>
         @endif
+
+        <a class="btn btn-primary" href="{{url('/widget/ssmotion/infos/'.$widget->id)}}">Infos</a>
         <hr>
             Occupé pour la dernière fois <span id="last_busy_{{$sensor->id}}">{{$last_busy->created_at->diffForHumans()}}</span>
     </div>
