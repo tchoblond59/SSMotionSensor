@@ -1,9 +1,7 @@
 /****************SSMotionSensor JS Plugin****************/
 $(function() {
     e.channel('chan-ssmotionsensor')
-        .listen('.Tchoblond59.SSMotionSensor.Events.SSMotionSensorEvent', function (e) {
-            console.log('SSMotionSensorEvent', e);
-            console.log('SSMotionSensorEvent', e.last_busy_text);
+        .listen('.Tchoblond59\\SSMotionSensor\\Events\\SSMotionSensorEvent', function (e) {
             $('#last_busy_'+e.sensor.id).text(e.last_busy_text);
             if(e.state == 1)
             {
