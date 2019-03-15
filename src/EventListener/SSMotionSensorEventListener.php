@@ -29,7 +29,7 @@ class SSMotionSensorEventListener
      */
     public function handle(MSMessageEvent $event)
     {
-        \Log::useFiles(storage_path('/logs/ssmotion.log'), 'info');
+        //\Log::useFiles(storage_path('/logs/ssmotion.log'), 'info');
         $sensor = Sensor::where('node_address', '=', $event->message->getNodeId())
             ->where('sensor_address', '=', $event->message->getChildId())
             ->where('classname', '=', '\Tchoblond59\SSMotionSensor\Models\SSMotionSensor')
