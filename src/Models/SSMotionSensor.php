@@ -26,8 +26,9 @@ class SSMotionSensor extends Sensor
         $last_busy = Message::where('node_address', $this->node_address)
             ->where('sensor_address', $this->sensor_address)
             ->where('type', 16)
+            ->where('command', 1)
             ->where('value', 1)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'desc')->orderBy('id', 'desc')
             ->first();
         return $last_busy;
     }
@@ -38,7 +39,7 @@ class SSMotionSensor extends Sensor
             ->where('sensor_address', 255)
             ->where('command', 3)
             ->where('type', 0)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'desc')->orderBy('id', 'desc')
             ->first();
         if($message)
         {
@@ -55,7 +56,8 @@ class SSMotionSensor extends Sensor
         $last_message = Message::where('node_address', $this->node_address)
             ->where('sensor_address', $this->sensor_address)
             ->where('type', 16)
-            ->orderBy('created_at', 'desc')
+            ->where('command', 1)
+            ->orderBy('created_at', 'desc')->orderBy('id', 'desc')
             ->first();
 
         if($last_message)

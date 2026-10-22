@@ -13,7 +13,7 @@ class SSMotionSensorController extends Controller
 {
     public function infos($id)
     {
-        $widget = Widget::find($id);
+        $widget = Widget::findOrFail($id);
         $sensor = $widget->sensor;
         $sensor = SensorFactory::create($sensor->classname, $sensor->id);
         $date = Carbon::now()->subDay(7);
@@ -22,7 +22,7 @@ class SSMotionSensorController extends Controller
             ->selectRaw('DATE(created_at) date')
             ->selectRaw('count(*) as compte')
             ->where ('sensor_address', $sensor->sensor_address)
-            ->where ('created_at', '>', $date)->orderBy('created_at', 'desc')
+            ->where ('created_at', '>', $date)->orderBy('date', 'desc')
             ->where ('command', 1)
             ->where ('value', 1)
             ->where ('type',16)
